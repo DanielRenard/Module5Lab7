@@ -15,6 +15,14 @@ require('./routes/calculatorRoutes');
 //   res.send("Test!");
 // });
 
+const swaggerUi = require('swagger-ui-express');
+swaggerDocument = require('./swagger.json');
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
+
 app.use('/calculator', calculatorRoutes)
 
 app.use('/', express.static('public'))
