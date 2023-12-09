@@ -16,7 +16,7 @@ require('./routes/calculatorRoutes');
 // });
 
 const swaggerUi = require('swagger-ui-express');
-swaggerDocument = require('./swagger.json');
+const swaggerDocument = require('./swaggerConfig.js');
 app.use(
   '/api-docs',
   swaggerUi.serve,
