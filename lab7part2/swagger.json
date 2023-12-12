@@ -21,8 +21,24 @@
     "consumes": ["application/json"],
     "produces": ["application/json"],
     "paths": {
-        
-
-      
-      }
-  }
+      "store/products": {
+        "get": {
+          "tags": ["Store Products"],
+          "summary": "All of our products for sale",
+          "parameters": [
+            {
+            "title": "item.title",
+            "price": "item.price",
+            "description":  "item.description",
+            "image": "item.image"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "This service allows you to see products in our store."
+            }
+          }
+        }
+      }      
+    }
+}
