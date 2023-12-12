@@ -5,6 +5,7 @@ const app = express();
 const ports = [3006, 3007, 3008];
 
 const storeRoutes = require("./routes/storeRoutes")
+const cors = require("cors")
 
 // const swaggerUi = require('swagger-ui-express');
 // const swaggerDocument = require('./swagger.json');
@@ -14,7 +15,9 @@ const storeRoutes = require("./routes/storeRoutes")
 //   swaggerUi.setup(swaggerDocument)
 // );
 
-// app.use("/store", storeRoutes)
+app.use(cors())
+
+app.use("/store", storeRoutes)
 
 app.use('/', express.static('public'))
 

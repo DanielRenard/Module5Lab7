@@ -2,7 +2,7 @@
 // const axios = require('axios/dist/node/axios.cjs'); // node
 // import axios from "axios"
 
-axios.get('https://fakestoreapi.com/products')
+axios.get('http://localhost:3007/store/products')
 .then(response => {
   // console.log(response)
   return response.data
@@ -74,4 +74,27 @@ function selectCategories(event) {
       filteredCard(json, currentCategory)
     });
   }
+}
+
+// function selectCategories(event) {
+//   console.log(event.target.value);
+//   const currentCategory = event.target.value;
+//   const cardList = document.querySelector("#card-list");
+//   console.log(cardList);
+//   while (cardList.hasChildNodes()) {
+//     cardList.removeChild(cardList.firstChild);
+//   }
+//   if (currentCategory === "all categories") {
+//     fetch("https://fakestoreapi.com/products")
+//       .then((response) => response.json())
+//       .then((json) => addCard(json));
+//   } else {
+//     fetch("https://fakestoreapi.com/products")
+//       .then((response) => response.json())
+//       .then((json) => filteredCard(json, currentCategory));
+//   }
+// }
+
+function Hello() {
+console.log("Hello World!")
 }
