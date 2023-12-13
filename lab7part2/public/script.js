@@ -1,7 +1,3 @@
-// const axios = require('axios/dist/browser/axios.cjs')
-// const axios = require('axios/dist/node/axios.cjs'); // node
-// import axios from "axios"
-
 axios.get('http://localhost:3007/store/products')
 .then(response => {
   // console.log(response)
@@ -9,12 +5,8 @@ axios.get('http://localhost:3007/store/products')
 })
 .then((json) => {
   addCard(json)
-  console.log(json)
+  // console.log(json)
 });
-
-// fetch("https://fakestoreapi.com/products")
-//   .then((response) => response.json())
-//   .then((json) => addCard(json));
 
 function addCard(json) {
   json.forEach((item) => {
@@ -28,10 +20,6 @@ function addCard(json) {
     document.querySelector("#card-list").appendChild(template);
   });
 }
-
-// fetch("https://fakestoreapi.com/products")
-//   .then((response) => response.json())
-//   .then((json) => filteredCard(json, currentCategory));
 
 function filteredCard(json, category) {
   const filterCat = json.filter(function (item) {
@@ -54,7 +42,7 @@ function selectCategories(event) {
   console.log(event.target.value);
   const currentCategory = event.target.value;
   const cardList = document.querySelector("#card-list");
-  console.log(cardList);
+  // console.log(cardList);
   while (cardList.hasChildNodes()) {
     cardList.removeChild(cardList.firstChild);
   }
@@ -64,7 +52,7 @@ function selectCategories(event) {
     })
     .then((json) => {
       addCard(json)
-      console.log(json)
+      // console.log(json)
     });
   } else {
     axios.get('https://fakestoreapi.com/products').then(response => {
@@ -74,27 +62,4 @@ function selectCategories(event) {
       filteredCard(json, currentCategory)
     });
   }
-}
-
-// function selectCategories(event) {
-//   console.log(event.target.value);
-//   const currentCategory = event.target.value;
-//   const cardList = document.querySelector("#card-list");
-//   console.log(cardList);
-//   while (cardList.hasChildNodes()) {
-//     cardList.removeChild(cardList.firstChild);
-//   }
-//   if (currentCategory === "all categories") {
-//     fetch("https://fakestoreapi.com/products")
-//       .then((response) => response.json())
-//       .then((json) => addCard(json));
-//   } else {
-//     fetch("https://fakestoreapi.com/products")
-//       .then((response) => response.json())
-//       .then((json) => filteredCard(json, currentCategory));
-//   }
-// }
-
-function Hello() {
-console.log("Hello World!")
 }

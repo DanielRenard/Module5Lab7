@@ -1,19 +1,17 @@
 const express = require("express");
 const app = express();
-// const port = 3000;
-// const port2 = 3001;
-const ports = [3006, 3007, 3008];
+const ports = [3007];
 
 const storeRoutes = require("./routes/storeRoutes")
 const cors = require("cors")
 
-// const swaggerUi = require('swagger-ui-express');
-// const swaggerDocument = require('./swagger.json');
-// app.use(
-//   '/api-docs',
-//   swaggerUi.serve,
-//   swaggerUi.setup(swaggerDocument)
-// );
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+app.use(
+  '/api-docs',
+  swaggerUi.serve,
+  swaggerUi.setup(swaggerDocument)
+);
 
 app.use(cors())
 
